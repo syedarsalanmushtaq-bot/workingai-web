@@ -1,0 +1,139 @@
+/* Working AI | Design tokens v1.0 | 2 October 2026
+   Source: founder-supplied visual design system.
+   Implementation companion, not a complete website stylesheet.
+   Load Inter 400/500/600, Source Serif 4 400 and IBM Plex Mono 400
+   through the site's approved font pipeline. Font files are not bundled here.
+   Sizes and spacing are proposed defaults. Verify in the final browser layout.
+   Carousels carry no author, publication, logo, watermark or social handle.
+*/
+:root {
+  --wai-ivory: #F8F7F4;
+  --wai-navy: #172434;
+  --wai-slate: #667888;
+  --wai-terracotta: #BD7056;
+  --wai-grey: #E9E8E4;
+  --wai-secondary: #626B73;
+
+  --wai-background: var(--wai-ivory);
+  --wai-surface: var(--wai-grey);
+  --wai-text: var(--wai-navy);
+  --wai-text-secondary: var(--wai-secondary);
+  --wai-link: var(--wai-navy);
+  --wai-accent: var(--wai-terracotta);
+  --wai-chart-comparison: var(--wai-slate);
+  --wai-font-sans: 'Inter', Arial, sans-serif;
+  --wai-font-serif: 'Source Serif 4', Georgia, serif;
+  --wai-font-mono: 'IBM Plex Mono', 'Courier New', monospace;
+  --wai-weight-regular: 400;
+  --wai-weight-medium: 500;
+  --wai-weight-semibold: 600;
+
+  --wai-type-hero: clamp(2.25rem, 1.5rem + 3vw, 4rem);
+  --wai-type-section: clamp(2rem, 1.6rem + 1.5vw, 2.5rem);
+  --wai-type-card: clamp(1.375rem, 1.25rem + .5vw, 1.5rem);
+  --wai-type-body: 1.125rem;
+  --wai-type-ui: 1rem;
+  --wai-type-meta: .875rem;
+  --wai-leading-display: 1.05;
+  --wai-leading-heading: 1.15;
+  --wai-leading-body: 1.6;
+  --wai-leading-meta: 1.45;
+
+  --wai-space-1: .5rem;
+  --wai-space-2: 1rem;
+  --wai-space-3: 1.5rem;
+  --wai-space-4: 2rem;
+  --wai-space-6: 3rem;
+  --wai-space-8: 4rem;
+  --wai-space-12: 6rem;
+  --wai-page-max: 75rem;
+  --wai-reading-max: 42.5rem;
+  --wai-gutter: clamp(1.25rem, 4vw, 3rem);
+  --wai-section-gap: clamp(4rem, 7vw, 6rem);
+  --wai-rule-width: 1px;
+  --wai-radius: 4px;
+}
+
+/* Opt-in examples, scoped to avoid overriding an existing site. */
+.wai-publication {
+  background: var(--wai-background);
+  color: var(--wai-text);
+  font-family: var(--wai-font-sans);
+  font-size: var(--wai-type-body);
+  line-height: var(--wai-leading-body);
+}
+.wai-container {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: calc(var(--wai-page-max) + 2 * var(--wai-gutter));
+  margin-inline: auto;
+  padding-inline: var(--wai-gutter);
+}
+.wai-reading { max-width: var(--wai-reading-max); }
+.wai-wordmark {
+  font-family: var(--wai-font-sans);
+  font-weight: var(--wai-weight-semibold);
+  font-size: clamp(1.5rem, 1.2rem + 1vw, 2rem);
+  letter-spacing: .02em;
+  line-height: 1.15;
+}
+.wai-editorial-headline {
+  font-family: var(--wai-font-serif);
+  font-weight: var(--wai-weight-regular);
+  font-size: var(--wai-type-hero);
+  line-height: var(--wai-leading-display);
+  text-wrap: balance;
+}
+.wai-section-title {
+  font-family: var(--wai-font-sans);
+  font-weight: var(--wai-weight-semibold);
+  font-size: var(--wai-type-section);
+  line-height: var(--wai-leading-heading);
+}
+.wai-meta {
+  font-family: var(--wai-font-sans);
+  font-size: var(--wai-type-meta);
+  line-height: var(--wai-leading-meta);
+  color: var(--wai-text-secondary);
+}
+.wai-technical-label { font-family: var(--wai-font-mono); }
+.wai-numbers { font-variant-numeric: tabular-nums; }
+.wai-link { color: var(--wai-link); text-decoration: underline; text-underline-offset: .18em; }
+.wai-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  min-height: 44px;
+  padding: .75rem 1.25rem;
+  color: var(--wai-ivory);
+  background: var(--wai-navy);
+  border: 1px solid currentColor;
+  border-radius: var(--wai-radius);
+  font-family: var(--wai-font-sans);
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.4;
+  text-decoration: none;
+  cursor: pointer;
+}
+.wai-button:hover { text-decoration: underline; text-underline-offset: .18em; }
+.wai-publication :focus-visible {
+  outline: 2px solid var(--wai-text);
+  outline-offset: 4px;
+}
+.wai-dark {
+  --wai-background: var(--wai-navy);
+  --wai-text: var(--wai-ivory);
+  --wai-text-secondary: var(--wai-ivory);
+  --wai-link: var(--wai-ivory);
+  background: var(--wai-background);
+  color: var(--wai-text);
+}
+.wai-dark .wai-button { color: var(--wai-navy); background: var(--wai-ivory); }
+/* Slate and terracotta are below 4.5:1 on ivory. Do not use for small text.
+   The soft grey is a panel fill, not a meaningful control boundary.
+   Use navy for controls and focus indicators. Avoid colour-only information. */
+@media (prefers-reduced-motion: reduce) {
+  .wai-publication { scroll-behavior: auto; }
+}
